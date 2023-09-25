@@ -15,6 +15,7 @@ const AddStudent = () => {
     address: "",
   });
   
+  
   const [studnetImage, setStudentImage] = useState(null);
   const [studentPdf, setStudentPdf] = useState(null);
 
