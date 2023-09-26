@@ -167,7 +167,7 @@ const getStudentData = async () =>{
                       required
                     />
                     {errData && fieldData.name.length === 0 ? (
-                      <p className="errField">please fill the field</p>
+                      <p className="errField">Please fill the field</p>
                     ) : (
                       ""
                     )}
@@ -186,7 +186,7 @@ const getStudentData = async () =>{
                       required
                     />
                     {errData && fieldData.email.length === 0 ? (
-                      <p className="errField">please fill the field</p>
+                      <p className="errField">Please fill the field</p>
                     ) : (
                       ""
                     )}
@@ -205,7 +205,7 @@ const getStudentData = async () =>{
                       required
                     />
                     {errData && fieldData.dob.length === 0 ? (
-                      <p className="errField">please fill the field</p>
+                      <p className="errField">Please fill the field</p>
                     ) : (
                       ""
                     )}
@@ -222,7 +222,7 @@ const getStudentData = async () =>{
                       required
                     />
                     {errData && fieldData.qualification.length === 0 ? (
-                      <p className="errField">please fill the field</p>
+                      <p className="errField">Please fill the field</p>
                     ) : (
                       ""
                     )}
@@ -238,7 +238,7 @@ const getStudentData = async () =>{
                       value={fieldData.address}
                     ></textarea>
                     {errData && fieldData.address.length === 0 ? (
-                      <p className="errField">please fill the field</p>
+                      <p className="errField">Please fill the field</p>
                     ) : (
                       ""
                     )}

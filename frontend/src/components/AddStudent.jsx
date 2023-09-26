@@ -144,7 +144,7 @@ const AddStudent = () => {
                       required
                     />
                     {errData && fieldData.name.length === 0 ? (
-                      <p className="errField">please fill the field</p>
+                      <p className="errField">Please fill the field</p>
                     ) : (
                       ""
                     )}
@@ -163,7 +163,7 @@ const AddStudent = () => {
                       required
                     />
                     {errData && fieldData.email.length === 0 ? (
-                      <p className="errField">please fill the field</p>
+                      <p className="errField">Please fill the field</p>
                     ) : (
                       ""
                     )}
@@ -182,7 +182,7 @@ const AddStudent = () => {
                       required
                     />
                     {errData && fieldData.dob.length === 0 ? (
-                      <p className="errField">please fill the field</p>
+                      <p className="errField">Please fill the field</p>
                     ) : (
                       ""
                     )}
@@ -199,7 +199,7 @@ const AddStudent = () => {
                       required
                     />
                     {errData && fieldData.qualification.length === 0 ? (
-                      <p className="errField">please fill the field</p>
+                      <p className="errField">Please fill the field</p>
                     ) : (
                       ""
                     )}
@@ -215,7 +215,7 @@ const AddStudent = () => {
                       value={fieldData.address}
                     ></textarea>
                     {errData && fieldData.address.length === 0 ? (
-                      <p className="errField">please fill the field</p>
+                      <p className="errField">Please fill the field</p>
                     ) : (
                       ""
                     )}
@@ -235,7 +235,7 @@ const AddStudent = () => {
                           onChange={handleImgFileInput}
                         />
                         {errData && studnetImage === null ? (
-                          <p className="errField">please select image</p>
+                          <p className="errField">Please select image</p>
                         ) : (
                           ""
                         )}
@@ -253,7 +253,7 @@ const AddStudent = () => {
                           onChange={handlePdfFileInput}
                         />
                         {errData && studentPdf === null ? (
-                          <p className="errField">please select file</p>
+                          <p className="errField">Please select file</p>
                         ) : (
                           ""
                         )}
