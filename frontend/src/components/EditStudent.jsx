@@ -1,11 +1,12 @@
 import React,{useState, useEffect} from 'react'
 import axios from "axios";
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Pdf from "../assets/img/PDF_icon.png"
 
 const EditStudent = () => {
   const navigate = useNavigate();
   const [errData, setErrData] = useState(false);
+  const [thankMessage, setThankMessage] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [fieldData, setFieldData] = useState({
@@ -122,7 +123,11 @@ const getStudentData = async () =>{
       );
       if (resData.status >= 201 && resData.status < 301) {
         setEmailError("");
-        navigate("/");
+        setThankMessage(true)
+        setTimeout(() => {
+          navigate("/");
+          setThankMessage(false)
+        }, 3000);
       } else {
         console.log("Server returned an error:", resData.data.message);
       }
@@ -140,6 +145,9 @@ const getStudentData = async () =>{
         <div className="container">
           <div className="row">
             <div className="col-xs-6 col-md-6 m-auto mt-5 mb-5">
+            <div className="registerFormHdng">
+                <Link to="/" className="addBtn backBtn"><i className="fa fa-angle-left" aria-hidden="true"></i> Back to Home</Link>
+              </div>
               <div className="registerFormHdng">
                 <h2>Update Student Detailes</h2>
               </div>
@@ -240,10 +248,10 @@ const getStudentData = async () =>{
                       <div>
                       <div className="privewsImage">
                       <img className="imgPrvw" src={`http://localhost:3001${prvImg}`} alt="Preive Img"/>
-                      <a  rel="noreferrer" href={`http://localhost:3001${prvImg}`} className='imgPrvw' target='_blank'>Click to Full Prev Image</a>
+                      <a  rel="noreferrer" href={`http://localhost:3001${prvImg}`} className='imgPrvw' target='_blank'>View Current Profile</a>
                       </div>
                         <label name="pdf-file" htmlFor="image">
-                          Upload Image <span>*</span>
+                        Update Student Profile
                         </label>
                         <input
                           className="type_file"
@@ -257,11 +265,11 @@ const getStudentData = async () =>{
                       <div>
                       <div className="privewsImage">
                       <img className="imgPrvw pdfFile" src={Pdf} alt="Preive Img"/>
-                      <a  rel="noreferrer" href={`http://localhost:3001${prvPdf}`} className='imgPrvw' target='_blank'>Click to View Prev File</a>
+                      <a  rel="noreferrer" href={`http://localhost:3001${prvPdf}`} className='imgPrvw' target='_blank'>View Current Marksheet</a>
                       </div>
                       
                         <label name="pdf-file" htmlFor="pdf">
-                          Upload PDF <span>*</span>
+                        Update Marksheet
                         </label>
                         <input
                           className="type_file"
@@ -273,13 +281,19 @@ const getStudentData = async () =>{
                         />
                       </div>
                     </div>
-                    <p className="errField"> {errorMessage}</p>
+                    <p className="errField upldMb"> {errorMessage}</p>
                   </div>
 
                   <div className="fields butn">
-                    <button className="addBtn" onClick={submitData}>
-                      Submit Form
-                    </button>
+                    { thankMessage ? <>
+                      <button className="addBtn disbled">
+                        Updated
+                      </button>
+                      <p>Student Information Updated Successfully</p>
+                      </> : 
+                       <button className="addBtn" onClick={submitData}>
+                      Updated
+                    </button>}
                   </div>
                 </form>
               </div>

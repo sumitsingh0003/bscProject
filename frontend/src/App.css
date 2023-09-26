@@ -94,8 +94,8 @@ td button {background: none;border: none;outline: none;margin-left: 10px;}
 .fields textarea {display: block;height: 70px;resize: none;}
 .fields:first-child {margin: 0;}
 .files {display: flex;justify-content: space-between;margin-top: 10px;}
-input.type_file {cursor: pointer;border: none !important;padding: 0 !important;margin: 0 !important;border-radius: 0;}
-.fields.butn button {margin: 0;border-radius: 5px;}
+input.type_file {cursor: pointer;border: none !important;padding: 0 !important;margin: 0 !important;border-radius: 0;margin-top: 8px !important;}
+.fields.butn button {margin: 0;border-radius: 5px;display: flex;align-items: center;}
 .fields.butn {margin-top: 30px;}
 p.errField {  font-size: 12px;color: red;}
 .formSection h2 {font-size: 18px;font-weight: bold;margin-bottom: 20px;}
@@ -111,7 +111,7 @@ td.addressCls p {overflow: hidden;text-overflow: ellipsis;display: -webkit-box;l
 
   .privewsImage a {margin: 0;display: inline-block;color: #3ebeb3;font-size: 16px;font-weight: 600;
     /* text-decoration: none; */}
-img.imgPrvw {width: 40px;height: 40px;border-radius: 100px;}
+img.imgPrvw {width: 40px;height: 40px;border-radius: 100px;border: 1px solid #ddd;}
 .privewsImage img {margin-right: 10px;}
 .privewsImage {display: flex;align-items: center;}
 .privewsImage {display: flex;align-items: center;margin: 20px 0px;}
@@ -122,6 +122,64 @@ img.imgPrvw.pdfFile {border-radius: 0;}
 .studentDetailes ul li {margin-bottom: 10px;font-size: 16px;border-bottom: 1px solid #ddd;padding-bottom: 10px;}
 .studentDetailes ul {margin: 0;padding: 0;list-style: none;}
 .modal-footer {margin-top: 20px;padding-bottom: 0 !important;}
+a.addBtn.backBtn i {font-size: 18px;margin-right: 5px;}
+.fields.butn p {
+  margin: 0;
+  margin-left: 20px;font-size: 17px;color: #3ebeb3;
+}
+.addBtn.disbled{opacity: 0.6;cursor: no-drop;}
+.fields.butn {
+  display: flex;
+  align-items: center;
+}p.errField.upldMb {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cnfrmMainBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000000ad;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  z-index: 999;
+}
+.cnfrInnerBx {
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  font-size: 20px;   
+  height: 160px;
+  margin-top: 10%;
+  text-align: right;
+}
+.cnfrInnerBx button {
+  margin-right: 10px;
+  padding: 5px 20px;
+  border: 1px solid #ddd;
+  color: #000;
+  font-size: 16px;
+  background: #ddd;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+button.del {
+  background: #d11a2a;
+  border: 1px solid #d11a2a;
+  color: #fff;
+}
+
+a.addBtn.backBtn {
+  margin-left: 0;
+  margin-bottom: 10px !important;
+  display: inline-block;
+}
+
 
 
 

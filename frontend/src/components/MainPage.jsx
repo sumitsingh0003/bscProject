@@ -8,6 +8,8 @@ const MainPage = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [viewStudent, setViewStudent] = useState([])
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [stdntId, setStdntId] = useState('')
 
   const getStudetsData = async () => {
     setLoading(true);
@@ -27,11 +29,17 @@ const MainPage = () => {
       console.log(error);
     }
   };
-  const deletStudentData = async (id) => {
-    const studentData = id;
+
+  const deletStudentData = (id) => {
+    setStdntId(id)
+    setShowConfirm(true);
+  };
+
+  const handleConfirm = async () => {
+    setShowConfirm(false);
     try {
       const resData = await axios.post(
-        `http://localhost:3001/api/delete-student/${studentData}`
+        `http://localhost:3001/api/delete-student/${stdntId}`
       );
       if (resData.status >= 201 && resData.status < 301) {
         getStudetsData();
@@ -41,6 +49,10 @@ const MainPage = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleCancel = () => {
+    setShowConfirm(false);
   };
 
   const viewDetailes = async (studentId) =>{
@@ -61,14 +73,14 @@ const MainPage = () => {
 
   setTimeout(() => {
     setLoading(false);
-  }, 2000);
+  }, 1000);
 
   const searchStudentData = (e) => {
     const searchQuery = e.target.value.toLowerCase();
     const filteredData = studentData.filter(
       (user) =>
         user.name.toLowerCase().includes(searchQuery) ||
-        user.email.toLowerCase().includes(searchQuery)
+        user.qualification.toLowerCase().includes(searchQuery)
     );
     setFilteredUsers(filteredData);
   };
@@ -106,7 +118,7 @@ const MainPage = () => {
                 <div className="topBarAction">
                   <input
                     type="search"
-                    placeholder="Search students..."
+                    placeholder="Search by name or qualification..."
                     onChange={searchStudentData}
                   />
                   <Link to="/add-student" className="addBtn">
@@ -200,6 +212,15 @@ const MainPage = () => {
         </div>
       </div>
 
+      {showConfirm && (
+        <div className="cnfrmMainBox">
+        <div className="cnfrInnerBx">
+          <p>Are you sure you want to delete this item?</p>
+          <button onClick={handleCancel}>Cancel</button>
+          <button onClick={handleConfirm} className="del">Delete</button>
+          </div>
+        </div>
+      )}
       <div
         className="modal fade"
         id="exampleModal"
@@ -247,7 +268,7 @@ const MainPage = () => {
           
 
             <div className="modal-footer">
-            {viewStudent.map(vals => {return <a key={vals} href={`http://localhost:3001${vals.student_marksheet}`} className="addBtn" target="_blank" rel="noreferrer">View File</a>})}
+            {viewStudent.map(vals => {return <a key={vals} href={`http://localhost:3001${vals.student_marksheet}`} className="addBtn" target="_blank" rel="noreferrer">View Marksheet</a>})}
           
             {/* {viewStudent.map((vals, id)=>{
               return(

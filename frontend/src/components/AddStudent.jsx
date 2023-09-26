@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AddStudent = () => {
   const navigate = useNavigate();
@@ -122,6 +122,9 @@ const AddStudent = () => {
         <div className="container">
           <div className="row">
             <div className="col-xs-6 col-md-6 m-auto mt-5 mb-5">
+            <div className="registerFormHdng">
+                <Link to="/" className="addBtn backBtn"><i className="fa fa-angle-left" aria-hidden="true"></i> Back to Home</Link>
+              </div>
               <div className="registerFormHdng">
                 <h2>Registration Form</h2>
               </div>
@@ -221,7 +224,7 @@ const AddStudent = () => {
                     <div className="files">
                       <div>
                         <label name="pdf-file" htmlFor="image">
-                          Upload Image <span>*</span>
+                          Upload Student Profile <span>*</span>
                         </label>
                         <input
                           className="type_file"
@@ -239,7 +242,7 @@ const AddStudent = () => {
                       </div>
                       <div>
                         <label name="pdf-file" htmlFor="pdf">
-                          Upload PDF <span>*</span>
+                          Upload Marksheet <span>*</span>
                         </label>
                         <input
                           className="type_file"
@@ -254,9 +257,10 @@ const AddStudent = () => {
                         ) : (
                           ""
                         )}
+                        
                       </div>
                     </div>
-                    <p className="errField"> {errorMessage}</p>
+                    <p className="errField upldMb"> {errorMessage}</p>
                   </div>
 
                   <div className="fields butn">
